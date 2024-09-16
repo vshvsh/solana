@@ -238,6 +238,12 @@ pub fn archive_snapshot_package(
         snapshot_package.slot
     );
 
+    warn!("serialize status cache: {}", 
+        &snapshot_package
+            .snapshot_links
+            .path()
+            .join(SNAPSHOT_STATUS_CACHE_FILE_NAME).display());
+    
     serialize_status_cache(
         snapshot_package.slot,
         &snapshot_package.slot_deltas,
